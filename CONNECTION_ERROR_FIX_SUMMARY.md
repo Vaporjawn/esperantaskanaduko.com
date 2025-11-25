@@ -153,11 +153,11 @@ interface SendOptions {
 - ✅ Improved user experience (actionable error messages)
 
 ## Performance Impact
-- **Positive Impact**: 
+- **Positive Impact**:
   - Retry logic handles transient network issues (improved reliability)
   - Content script injection only happens when needed (efficient)
   - Timeout prevents indefinite waiting (better UX)
-  
+
 - **Negligible Overhead**:
   - PING check adds ~10-50ms latency (one-time per popup open)
   - Retry delay adds 500ms only on failure (rare case)

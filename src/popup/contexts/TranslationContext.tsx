@@ -103,7 +103,7 @@ export const TranslationProvider = ({ children }: { children: ReactNode }) => {
       console.error('Translation error:', error);
       setStatus('error');
       setProgress(null);
-      
+
       // Provide user-friendly error messages
       if (error instanceof Error) {
         alert(`Translation error: ${error.message}`);
@@ -129,7 +129,7 @@ export const TranslationProvider = ({ children }: { children: ReactNode }) => {
     } catch (error) {
       console.error('Restore error:', error);
       setStatus('error');
-      
+
       // Provide user-friendly error messages
       if (error instanceof Error) {
         alert(`Restore error: ${error.message}`);
@@ -161,7 +161,7 @@ export const TranslationProvider = ({ children }: { children: ReactNode }) => {
     } catch (error) {
       console.error('Toggle translation error:', error);
       setStatus('error');
-      
+
       // Provide user-friendly error messages
       if (error instanceof Error) {
         alert(`Translation error: ${error.message}`);

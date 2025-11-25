@@ -20,7 +20,7 @@ Fixed the "Could not establish connection. Receiving end does not exist." error 
 // Check if URL is restricted (chrome://, about:/, file://, etc.)
 export function isRestrictedUrl(url: string | undefined): boolean {
   if (!url) return true;
-  
+
   const restrictedProtocols = [
     'chrome://',
     'about:',
@@ -29,7 +29,7 @@ export function isRestrictedUrl(url: string | undefined): boolean {
     'file://',
     'view-source:',
   ];
-  
+
   return restrictedProtocols.some(protocol => url.startsWith(protocol));
 }
 
@@ -63,7 +63,7 @@ export async function sendMessageToTab<T = any>(
       return response;
     } catch (error) {
       lastError = error instanceof Error ? error : new Error(String(error));
-      
+
       // Don't retry on the last attempt
       if (attempt < retries) {
         await new Promise(resolve => setTimeout(resolve, retryDelay * (attempt + 1)));
@@ -284,7 +284,7 @@ const toggleTranslation = useCallback(async () => {
   } catch (error) {
     console.error('Toggle translation error:', error);
     setStatus('error');
-    
+
     if (error instanceof Error) {
       alert(`Translation error: ${error.message}`);
     }
@@ -373,7 +373,7 @@ const translatePage = useCallback(async () => {
     console.error('Translation error:', error);
     setStatus('error');
     setProgress(null);
-    
+
     if (error instanceof Error) {
       alert(`Translation error: ${error.message}`);
     }
@@ -441,7 +441,7 @@ const restorePage = useCallback(async () => {
   } catch (error) {
     console.error('Restore error:', error);
     setStatus('error');
-    
+
     if (error instanceof Error) {
       alert(`Restore error: ${error.message}`);
     }

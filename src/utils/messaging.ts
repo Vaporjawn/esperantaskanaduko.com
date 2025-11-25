@@ -7,7 +7,7 @@
  */
 export const isRestrictedUrl = (url: string | undefined): boolean => {
   if (!url) return true;
-  
+
   return (
     url.startsWith('chrome://') ||
     url.startsWith('about:') ||
@@ -51,9 +51,9 @@ export const sendMessageToTab = async <T = unknown>(
       return response;
     } catch (error) {
       lastError = error instanceof Error ? error : new Error(String(error));
-      
+
       // Check if it's a connection error
-      const isConnectionError = 
+      const isConnectionError =
         lastError.message.includes('Receiving end does not exist') ||
         lastError.message.includes('Could not establish connection');
 
