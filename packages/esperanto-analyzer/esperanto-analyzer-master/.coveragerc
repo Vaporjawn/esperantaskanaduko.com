@@ -1,0 +1,9 @@
+[run]
+omit =
+    test/*
+    setup.py
+    esperanto_analyzer/web/runserver.py
+    esperanto_analyzer/web/context.py
+
+[html]
+directory = coverage
