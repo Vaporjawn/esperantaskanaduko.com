@@ -196,7 +196,7 @@ Several former repositories now live in this one, with their full git history
 
 | Folder | Former repository |
 | --- | --- |
-| `packages/esperanto-analyzer` | `Vaporjawn/esperanto-analyzer` (still published to npm from this folder) |
+| `packages/esperanto-analyzer` | `Vaporjawn/esperanto-analyzer` (published on npm as `esperanto-analyzer`; run `npm publish` from this folder for new releases) |
 | `extensions/esperanto-translator` | `esperanto-translator` |
 | `extensions/esperanto-page-translator` | `Vaporjawn/esperanto-page-translator` |
 | `archive/skanaduko-assets` | `Esperanta-Skanaduko/Esperanta-Skanaduko-Assets` |

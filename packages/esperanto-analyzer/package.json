@@ -51,7 +51,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/victorwilliams/esperanto-analyzer.git"
+    "url": "git+https://github.com/Vaporjawn/esperantaskanaduko.com.git",
+    "directory": "packages/esperanto-analyzer"
   },
   "author": {
     "name": "Victor Williams",
