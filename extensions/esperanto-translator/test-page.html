@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esperanto Translator - Test Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .visible-text {
+            color: #2d3748;
+            margin: 10px 0;
+        }
+
+        .hidden-text {
+            display: none;
+        }
+
+        .invisible-text {
+            visibility: hidden;
+        }
+
+        .zero-opacity {
+            opacity: 0;
+        }
+
+        .code-block {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #48bb78;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.9em;
+            margin: 5px;
+        }
+
+        .test-case {
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+            margin: 20px 0;
+        }
+
+        #dynamic-content {
+            background: #fef5e7;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px dashed #f39c12;
+            min-height: 100px;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #5a67d8;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .status-indicator.green {
+            background: #48bb78;
+        }
+
+        .status-indicator.yellow {
+            background: #f39c12;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Esperanto Translator - Comprehensive Test Page</h1>
+        <p>This page tests all edge cases and scenarios for the page translation feature.</p>
+        <p>Use this page to verify that visible text is translated while hidden content, code blocks, and excluded elements remain unchanged.</p>
+    </div>
+
+    <!-- Test Case 1: Visible Text -->
+    <div class="section">
+        <h2><span class="status-indicator green"></span>Test Case 1: Visible Text Translation</h2>
+        <div class="test-case">
+            <p class="visible-text">This is normal, visible paragraph text that should be translated.</p>
+            <p class="visible-text">Here is another paragraph with multiple sentences. This should all be translated. The translator should handle punctuation correctly!</p>
+            <p class="visible-text">Numbers like 123 and dates like 2025 should be preserved in translation.</p>
+        </div>
+    </div>
+
+    <!-- Test Case 2: Hidden Content -->
+    <div class="section">
+        <h2><span class="status-indicator yellow"></span>Test Case 2: Hidden Content (Should NOT be Translated)</h2>
+        <div class="test-case">
+            <p class="visible-text">This text is visible and should be translated.</p>
+            <p class="hidden-text">This text is display:none and should NOT be translated.</p>
+            <p class="invisible-text">This text is visibility:hidden and should NOT be translated.</p>
+            <p class="zero-opacity">This text has opacity:0 and should NOT be translated.</p>
+            <p class="visible-text">Back to visible text that should be translated.</p>
+        </div>
+    </div>
+
+    <!-- Test Case 3: Code Blocks -->
+    <div class="section">
+        <h2><span class="status-indicator yellow"></span>Test Case 3: Code Blocks (Should NOT be Translated)</h2>
+        <div class="test-case">
+            <p class="visible-text">Code blocks should remain in original language:</p>
+            <pre class="code-block">
+function translatePage() {
+    const textNodes = extractTextNodes();
+    const translations = await batchTranslate(textNodes);
+    return applyTranslations(translations);
+}
+            </pre>
+            <p class="visible-text">Inline code like <code>const message = "Hello World";</code> should also not be translated.</p>
+        </div>
+    </div>
+
+    <!-- Test Case 4: Mixed Content -->
+    <div class="section">
+        <h2><span class="status-indicator green"></span>Test Case 4: Mixed Content</h2>
+        <div class="test-case">
+            <p class="visible-text">This paragraph contains <strong>bold text</strong>, <em>italic text</em>, and <a href="#">links</a> that should all be translated while preserving formatting.</p>
+            <ul>
+                <li>First list item with translatable text</li>
+                <li>Second list item with more content</li>
+                <li>Third list item to test multiple elements</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Test Case 5: Form Elements -->
+    <div class="section">
+        <h2><span class="status-indicator yellow"></span>Test Case 5: Form Elements (Should NOT be Translated)</h2>
+        <div class="test-case">
+            <p class="visible-text">Form elements should not be translated:</p>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" value="John Doe" placeholder="Enter your name">
+
+                <label for="comments">Comments:</label>
+                <textarea id="comments" rows="3">This is a user input field</textarea>
+
+                <select id="language">
+                    <option>English</option>
+                    <option>Spanish</option>
+                    <option>French</option>
+                </select>
+            </form>
+            <p class="visible-text">Labels and surrounding text should be translated though.</p>
+        </div>
+    </div>
+
+    <!-- Test Case 6: Special Characters and Entities -->
+    <div class="section">
+        <h2><span class="status-indicator green"></span>Test Case 6: Special Characters</h2>
+        <div class="test-case">
+            <p class="visible-text">Testing special characters: © ® ™ € £ ¥</p>
+            <p class="visible-text">HTML entities: &lt;div&gt; &amp; &quot;quotes&quot;</p>
+            <p class="visible-text">Emojis: 😀 🎉 🚀 ❤️ ✅</p>
+            <p class="visible-text">Accented characters: café, naïve, résumé</p>
+        </div>
+    </div>
+
+    <!-- Test Case 7: Headings and Structure -->
+    <div class="section">
+        <h2><span class="status-indicator green"></span>Test Case 7: Document Structure</h2>
+        <div class="test-case">
+            <h3>This is a level 3 heading</h3>
+            <p class="visible-text">Headings of all levels should be translated.</p>
+            <h4>This is a level 4 heading</h4>
+            <p class="visible-text">The document hierarchy should be preserved.</p>
+            <h5>This is a level 5 heading</h5>
+            <p class="visible-text">Translation should maintain semantic meaning.</p>
+        </div>
+    </div>
+
+    <!-- Test Case 8: Tables -->
+    <div class="section">
+        <h2><span class="status-indicator green"></span>Test Case 8: Tables</h2>
+        <div class="test-case">
+            <table border="1" cellpadding="10" style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Status</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Visible text translation</td>
+                        <td>Implemented</td>
+                        <td>Translates all visible text on page</td>
+                    </tr>
+                    <tr>
+                        <td>Code block exclusion</td>
+                        <td>Implemented</td>
+                        <td>Preserves code blocks in original language</td>
+                    </tr>
+                    <tr>
+                        <td>Dynamic content handling</td>
+                        <td>Implemented</td>
+                        <td>Automatically translates new content</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Test Case 9: Dynamic Content -->
+    <div class="section">
+        <h2><span class="status-indicator green"></span>Test Case 9: Dynamic Content Loading</h2>
+        <div class="test-case">
+            <p class="visible-text">Click the button below to add dynamic content. The translator should automatically detect and translate new content:</p>
+            <button onclick="addDynamicContent()">Add Dynamic Content</button>
+            <button onclick="removeDynamicContent()">Remove Dynamic Content</button>
+            <div id="dynamic-content">
+                <p>Dynamic content will appear here...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Test Case 10: Long Text -->
+    <div class="section">
+        <h2><span class="status-indicator green"></span>Test Case 10: Long Text Content</h2>
+        <div class="test-case">
+            <p class="visible-text">
+                This is a very long paragraph to test the chunking functionality. The translator should be able to handle large amounts of text efficiently by splitting it into manageable chunks. This helps prevent API rate limiting and ensures smooth translation of large pages. The implementation uses a batch size of 100 text nodes per chunk, with appropriate delays between chunks to maintain API stability. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p class="visible-text">
+                Another long paragraph to increase the number of text nodes. The system should show progress updates as it translates through multiple chunks of content. Users will see incremental progress from 0% to 100% as the translation proceeds. This provides excellent user feedback and transparency about the translation process. The progress tracking is implemented through periodic updates sent to the popup UI, allowing users to see exactly how much of the page has been translated at any given moment.
+            </p>
+        </div>
+    </div>
+
+    <!-- Test Case 11: Badges and Tags -->
+    <div class="section">
+        <h2><span class="status-indicator green"></span>Test Case 11: UI Components</h2>
+        <div class="test-case">
+            <p class="visible-text">Testing badge and tag translation:</p>
+            <div>
+                <span class="badge">New Feature</span>
+                <span class="badge">Bug Fix</span>
+                <span class="badge">Enhancement</span>
+                <span class="badge">Documentation</span>
+            </div>
+            <p class="visible-text">All badges should be translated while maintaining their styling.</p>
+        </div>
+    </div>
+
+    <!-- Test Case 12: Grid Layout -->
+    <div class="section">
+        <h2><span class="status-indicator green"></span>Test Case 12: Complex Layouts</h2>
+        <div class="test-case">
+            <p class="visible-text">Testing translation in grid layouts:</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Card Title One</h3>
+                    <p>This is the content of the first card. It should be translated along with the title.</p>
+                </div>
+                <div class="card">
+                    <h3>Card Title Two</h3>
+                    <p>This is the content of the second card. Grid layouts should not affect translation.</p>
+                </div>
+                <div class="card">
+                    <h3>Card Title Three</h3>
+                    <p>This is the content of the third card. All text should be translated properly.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Test Case 13: Translate Attribute -->
+    <div class="section">
+        <h2><span class="status-indicator yellow"></span>Test Case 13: Translate="no" Attribute</h2>
+        <div class="test-case">
+            <p class="visible-text">This text should be translated.</p>
+            <p translate="no">This text has translate="no" and should NOT be translated.</p>
+            <p class="visible-text">Back to translatable text.</p>
+        </div>
+    </div>
+
+    <!-- Statistics -->
+    <div class="section">
+        <h2>Page Statistics</h2>
+        <div class="test-case">
+            <p class="visible-text">
+                This test page contains approximately 100+ text nodes to test the chunking and progress tracking features.
+                It includes various HTML elements, special characters, and edge cases to ensure comprehensive testing.
+            </p>
+            <p class="visible-text">
+                Expected behavior:
+            </p>
+            <ul>
+                <li>Green indicators: Content that SHOULD be translated</li>
+                <li>Yellow indicators: Content that should NOT be translated</li>
+                <li>Progress updates should appear in the extension popup</li>
+                <li>Translation should complete in 5-10 seconds depending on API response</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        let dynamicCounter = 0;
+
+        function addDynamicContent() {
+            dynamicCounter++;
+            const container = document.getElementById('dynamic-content');
+            const newContent = document.createElement('div');
+            newContent.style.margin = '10px 0';
+            newContent.style.padding = '10px';
+            newContent.style.background = '#e8f5e9';
+            newContent.style.borderRadius = '4px';
+            newContent.innerHTML = `
+                <p><strong>Dynamic Content #${dynamicCounter}</strong></p>
+                <p>This content was added dynamically and should be automatically translated by the mutation observer.</p>
+                <p>Timestamp: ${new Date().toLocaleTimeString()}</p>
+            `;
+            container.appendChild(newContent);
+            console.log('Dynamic content added - should be translated automatically');
+        }
+
+        function removeDynamicContent() {
+            const container = document.getElementById('dynamic-content');
+            while (container.children.length > 1) {
+                container.removeChild(container.lastChild);
+            }
+            dynamicCounter = 0;
+            console.log('Dynamic content removed');
+        }
+
+        // Log page load
+        console.log('Test page loaded - ready for translation testing');
+        console.log('Total paragraphs:', document.querySelectorAll('p').length);
+        console.log('Total sections:', document.querySelectorAll('.section').length);
+    </script>
+</body>
+</html>
