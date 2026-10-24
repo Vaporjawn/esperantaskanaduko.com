@@ -36,6 +36,9 @@ module.exports = {
     '\\.(png|jpg|jpeg|gif|svg|webp|ico)$': '<rootDir>/src/__mocks__/fileMock.cjs',
   },
 
+  // Polyfills that must exist before any module is imported (react-router 7 needs TextEncoder)
+  setupFiles: ['<rootDir>/src/__tests__/polyfills.ts'],
+
   // Run after each test environment is set up (but before test files):
   // 1. @testing-library/jest-dom — adds toBeInTheDocument, etc.
   // 2. Our setup.ts — global mocks for firebase, i18next, react-helmet-async
