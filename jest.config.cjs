@@ -18,6 +18,7 @@ module.exports = {
   moduleNameMapper: {
     // ── Path aliases (mirror tsconfig.json and vite.config.ts) ───────────────
     // More-specific aliases must be listed BEFORE the general @/ catch-all.
+    '^@esperanto-analyzer$': '<rootDir>/packages/esperanto-analyzer/src/index.ts',
     '^@contexts/(.*)$':   '<rootDir>/src/contexts/$1',
     '^@components/(.*)$': '<rootDir>/src/components/$1',
     '^@frontend/(.*)$':   '<rootDir>/src/frontend/$1',

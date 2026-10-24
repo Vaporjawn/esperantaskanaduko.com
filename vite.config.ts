@@ -7,6 +7,7 @@ import { fileURLToPath, URL } from 'url';
 
 // Resolve paths relative to this config file (ESM-safe __dirname replacement)
 const srcDir = fileURLToPath(new URL('./src', import.meta.url));
+const analyzerSrc = fileURLToPath(new URL('./packages/esperanto-analyzer/src', import.meta.url));
 
 // ─── Sentry source-map upload plugin ─────────────────────────────────────────
 // Only active when SENTRY_AUTH_TOKEN is present (CI/CD production builds).
@@ -151,6 +152,8 @@ export default defineConfig({
       { find: '@utils',      replacement: `${srcDir}/utils` },
       { find: '@i18n',       replacement: `${srcDir}/i18n` },
       { find: '@backend',    replacement: `${srcDir}/backend` },
+      // In-repo Esperanto analyzer package (packages/esperanto-analyzer)
+      { find: /^@esperanto-analyzer$/, replacement: `${analyzerSrc}/index.ts` },
       // General catch-all: @/foo → src/foo  (regex avoids matching @mui/...)
       { find: /^@\/(.*)/, replacement: `${srcDir}/$1` },
     ],

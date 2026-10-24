@@ -40,7 +40,8 @@
       "@hooks/*":      ["src/hooks/*"],
       "@utils/*":      ["src/utils/*"],
       "@i18n/*":       ["src/i18n/*"],
-      "@backend/*":    ["src/backend/*"]
+      "@backend/*":    ["src/backend/*"],
+      "@esperanto-analyzer": ["packages/esperanto-analyzer/src/index.ts"]
     }
   },
   "include": ["src"],
