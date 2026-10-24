@@ -1,0 +1,59 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#006600",
+    "activityBar.background": "#006600",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#000080",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#006600",
+    "statusBar.background": "#003300",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#006600",
+    "statusBarItem.remoteBackground": "#003300",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#003300",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#00330099",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "cSpell.words": [
+    "Kellerman",
+    "Mudie"
+  ],
+  "spellright.language": [
+    "en",
+    "es",
+    "it",
+    "cs",
+    "da",
+    "de",
+    "fr",
+    "hu",
+    "nl",
+    "pl",
+    "pt",
+    "ro",
+    "fi",
+    "sv",
+    "vi",
+    "tr",
+    "el",
+    "bg",
+    "ru",
+    "uk",
+    "he",
+    "ar",
+    "hi",
+    "pa",
+    "te",
+    "ko"
+  ],
+  "spellright.documentTypes": [
+    "latex",
+    "plaintext",
+    "markdown"
+  ],
+  "peacock.color": "#003300"
+}
