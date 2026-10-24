@@ -37,6 +37,8 @@ const routes = [
   { path: '/resources/news', changefreq: 'weekly', priority: '0.7' },
   { path: '/library', changefreq: 'monthly', priority: '0.8' },
   { path: '/library/esperanto-live-concert-videos', changefreq: 'monthly', priority: '0.7' },
+  { path: '/games/pendumulo', changefreq: 'monthly', priority: '0.6' },
+  { path: '/tools/analyzer', changefreq: 'monthly', priority: '0.6' },
   { path: '/about', changefreq: 'yearly', priority: '0.5' },
   { path: '/donate', changefreq: 'yearly', priority: '0.5' },
 ];

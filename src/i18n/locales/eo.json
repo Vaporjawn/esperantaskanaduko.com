@@ -51,6 +51,14 @@
         "title": "Esperantaj Rekta Koncertaj Videoj",
         "description": "Spektu rektajn prezentojn de Esperantaj muzikistoj tutmonde. Malkovru la viglan muzikan kulturon en la Esperanta komunumo.",
         "keywords": "Esperanta muziko, Esperantaj koncertoj, Esperantaj muzikistoj, Esperanta kulturo, rekta muziko"
+      },
+      "hangman": {
+        "title": "Pendumulo - Esperanta Vortludo",
+        "description": "Ludu Pendumulon, vortludon por la Esperanta alfabeto. Ekzercu vortprovizon kaj la literojn ĉ, ĝ, ĥ, ĵ, ŝ kaj ŭ."
+      },
+      "analyzer": {
+        "title": "Esperanta Analizilo - Vortklasoj kaj Gramatiko",
+        "description": "Algluu Esperantan tekston kaj vidu la vortklason, nombron, kazon kaj verbtempon de ĉiu vorto."
       }
     }
   },
@@ -59,7 +67,9 @@
       "home": "Hejmo",
       "library": "Biblioteko",
       "about": "Pri Ni",
-      "resources": "Rimedoj"
+      "resources": "Rimedoj",
+      "play": "Aldonaĵoj",
+      "hangman": "Pendumulo"
     },
     "secondary": {
       "contact": "Kontakto",
@@ -213,11 +223,19 @@
         "body": "Aliaj malfermkodaj projektoj en la Esperanta ekosistemo:",
         "esperantoAnalyzer": {
           "name": "Esperanto-Analizilo",
-          "description": "NPM-pakaĵo por morfologie analizi Esperantan tekston."
+          "description": "Analizu la vortklasojn kaj gramatikon de ajna Esperanta teksto, tuj ĉi tie en la retejo."
         },
         "mangaDex": {
           "name": "Esperanta Mangao (MangaDex)",
           "description": "Elektita kolekto de mangaoj tradukitaj al Esperanto, libere legeblaj en MangaDex."
+        },
+        "pendumulo": {
+          "name": "Pendumulo",
+          "description": "Vortludo por la Esperanta alfabeto, inkluzive de ĉ, ĝ, ĥ, ĵ, ŝ kaj ŭ."
+        },
+        "extensions": {
+          "name": "Retumilaj Etendaĵoj",
+          "description": "Chrome-etendaĵoj, kiuj tradukas retpaĝojn al Esperanto (fontkodo en GitHub)."
         }
       },
       "contribute": {
@@ -307,7 +325,7 @@
       "title": "Rilataj Projektoj",
       "esperantoAnalyzer": {
         "title": "Esperanto-Analizilo",
-        "description": "NPM-pakaĵo por Esperanta teksta analizo"
+        "description": "Analizu Esperantan tekston vorton post vorto"
       }
     },
     "social": {
@@ -492,6 +510,57 @@
       "viewDetails": "Vidi Detalojn",
       "readOnline": "Legi Rete",
       "open": "Malfermi"
+    }
+  },
+  "games": {
+    "hangman": {
+      "title": "Pendumulo",
+      "subtitle": "Diveni la Esperantan vorton antaŭ ol la figuro finiĝas.",
+      "figureLabel": "Pendumulo kun {{count}} eraroj",
+      "unknownLetter": "nekonata litero",
+      "letterLabel": "litero {{letter}}",
+      "wordLabel": "Vorto divenenda",
+      "keyboardLabel": "Esperanta klavaro",
+      "playing": "Divenado…",
+      "won": "🎉 Vi venkis!",
+      "lostPrefix": "Vi malvenkis. La vorto estis:",
+      "newGame": "Nova ludo",
+      "mistakes": "Eraroj: {{count}}/{{max}}",
+      "stats": "Ludoj: {{games}} | Venkoj: {{wins}} | Serio: {{streak}}",
+      "keyboardHint": "Konsileto: tajpu cx, gx, hx, jx, sx aŭ ux por ĉ, ĝ, ĥ, ĵ, ŝ aŭ ŭ."
+    }
+  },
+  "analyzer": {
+    "title": "Analizilo",
+    "subtitle": "Vidu la gramatikon de ĉiu vorto en Esperanta teksto.",
+    "inputLabel": "Esperanta teksto",
+    "inputHelp": "{{count}} / {{max}} signoj",
+    "summary": "Resumo",
+    "tableLabel": "Vortanalizo",
+    "columns": {
+      "word": "Vorto",
+      "partOfSpeech": "Vortklaso",
+      "features": "Trajtoj",
+      "confidence": "Certeco"
+    },
+    "features": {
+      "plural": "plurala",
+      "accusative": "akuzativa",
+      "possessive": "posesiva"
+    },
+    "pos": {
+      "Noun": "Substantivo",
+      "Verb": "Verbo",
+      "Adjective": "Adjektivo",
+      "Adverb": "Adverbo",
+      "Pronoun": "Pronomo",
+      "Preposition": "Prepozicio",
+      "Conjunction": "Konjunkcio",
+      "Interjection": "Interjekcio",
+      "Article": "Artikolo",
+      "Numeral": "Numeralo",
+      "Unknown": "Nekonata",
+      "Undefined": "Nedifinita"
     }
   }
 }

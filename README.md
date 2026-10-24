@@ -46,6 +46,9 @@ Esperanto is an international auxiliary language designed for ease of learning a
 - 🔍 **Easy Navigation** - Intuitive routing with React Router
 - ♿ **Accessibility First** - WCAG compliant with built-in MUI accessibility features
 - 🧪 **Well Tested** - Comprehensive test coverage with Jest
+- 🎮 **Pendumulo** - A hangman game for the 28-letter Esperanto alphabet (`/games/pendumulo`)
+- 🔎 **Analyzer** - Part-of-speech and grammar analysis of Esperanto text (`/tools/analyzer`)
+- 📚 **Free PDF books** - Public-domain Esperanto books hosted by the site, in the Library
 
 ## 🛠️ Tech Stack
 
@@ -168,22 +171,42 @@ npm run test:coverage
 esperantaskanaduko.com/
 ├── src/
 │   ├── backend/           # Backend services and Firebase integration
-│   │   ├── firebase/      # Firebase configuration and services
-│   │   ├── translations/  # Internationalization
-│   │   └── types/         # TypeScript type definitions
-│   ├── frontend/          # Frontend components and pages
-│   │   ├── components/    # Reusable React components
-│   │   ├── pages/         # Page components
-│   │   └── routes/        # Routing configuration
-│   ├── config/            # Application configuration
+│   ├── frontend/          # Frontend components, pages and routes
+│   │   └── pages/         # Page components (games/, tools/, library/, resources/ ...)
+│   ├── features/hangman/  # Pendumulo game logic, components and word list
+│   ├── data/              # Resource, library and free-book data
+│   ├── i18n/              # Translations (en and eo are complete)
 │   └── main.tsx           # Application entry point
-├── public/                # Static assets
-├── coverage/              # Test coverage reports
-└── dist/                  # Production build output
+├── public/                # Static assets; public/books/ holds the free PDFs
+├── packages/
+│   └── esperanto-analyzer/  # Morphological analyzer library (imported as @esperanto-analyzer)
+├── extensions/
+│   ├── esperanto-translator/       # Chrome extension: translate pages and selections to Esperanto
+│   └── esperanto-page-translator/  # Chrome extension: whole-page translation via LibreTranslate
+└── archive/
+    ├── skanaduko-assets/      # Scripts, raws, colour and PSD files for the Esperanta Skanaduko manga projects
+    ├── free-esperanto-books/  # Original catalogue READMEs and docs for the free books
+    └── esperanto-hangman/     # Licence and README of the original standalone game
 ```
 
-  Using [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Merged projects
 
+Several former repositories now live in this one, with their full git history
+(`git log -- <folder>` follows it):
+
+| Folder | Former repository |
+| --- | --- |
+| `packages/esperanto-analyzer` | `Vaporjawn/esperanto-analyzer` (still published to npm from this folder) |
+| `extensions/esperanto-translator` | `esperanto-translator` |
+| `extensions/esperanto-page-translator` | `Vaporjawn/esperanto-page-translator` |
+| `archive/skanaduko-assets` | `Esperanta-Skanaduko/Esperanta-Skanaduko-Assets` |
+| `archive/free-esperanto-books` | `Esperanta-Skanaduko/free-esperanto-books` (PDFs moved to `public/books/`) |
+| `src/features/hangman` | `Vaporjawn/esperanto-hangman` (ported into the site; history kept) |
+
+`packages/`, `extensions/` and `archive/` keep their own tooling and are excluded from the
+site's ESLint run. Only the analyzer is imported by the site, through the `@esperanto-analyzer`
+alias (see `tsconfig.json`, `vite.config.ts` and `jest.config.cjs`). Each extension has its own
+README with build and install steps.
 
 ## Technologies
 

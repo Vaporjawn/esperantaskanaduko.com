@@ -43,6 +43,13 @@ export const NavBar: React.FC = () => {
         { text: t('resources.categories.news'), link: '/resources/news' },
       ],
     },
+    {
+      text: t('navigation.main.play', 'Extras'),
+      children: [
+        { text: t('navigation.main.hangman', 'Pendumulo (hangman)'), link: '/games/pendumulo' },
+        { text: t('navigation.secondary.analyzer', 'Analyzer'), link: '/tools/analyzer' },
+      ],
+    },
     { text: t('navigation.main.about'), link: '/about' },
     { text: t('navigation.secondary.donate'), link: '/donate' },
     {

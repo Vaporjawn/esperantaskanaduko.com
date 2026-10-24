@@ -17,3 +17,8 @@ node_modules
 
 *.eslintrc.cjs
 *jest.config.cjs
+
+# Merged-in projects keep their own tooling (see README "Repository layout")
+archive
+extensions
+packages

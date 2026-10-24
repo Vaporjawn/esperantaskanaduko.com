@@ -13,6 +13,8 @@ const AboutPage = React.lazy(() => import('../pages/about/AboutPage'));
 const AuthPage = React.lazy(() => import('../pages/AuthPage'));
 const LibraryPage = React.lazy(() => import('../pages/library/LibraryPage'));
 const DonatePage = React.lazy(() => import('../pages/DonatePage'));
+const HangmanPage = React.lazy(() => import('../pages/games/HangmanPage'));
+const AnalyzerPage = React.lazy(() => import('../pages/tools/AnalyzerPage'));
 const NotFoundPage = React.lazy(() => import('../pages/NotFoundPage'));
 const EsperantoLiveConcertVideosPage = React.lazy(
   () => import('../pages/library/EsperantoLiveConcertVideosPage')
@@ -80,6 +82,22 @@ const Routes = () => {
           element={
             <RouteWrapper>
               <LibraryPage />
+            </RouteWrapper>
+          }
+        />
+        <Route
+          path="/games/pendumulo"
+          element={
+            <RouteWrapper>
+              <HangmanPage />
+            </RouteWrapper>
+          }
+        />
+        <Route
+          path="/tools/analyzer"
+          element={
+            <RouteWrapper>
+              <AnalyzerPage />
             </RouteWrapper>
           }
         />

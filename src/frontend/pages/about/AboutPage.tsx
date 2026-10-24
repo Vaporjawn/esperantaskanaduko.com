@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import { SEO } from '../../../components/SEO';
 import { useTranslation } from 'react-i18next';
+import { Link as RouterLink } from 'react-router-dom';
 import { SocialLinks } from '../../components/socialLinks/SocialLinks';
 import { CONTRIBUTORS } from '../../../data/contributors';
 
@@ -68,7 +69,17 @@ const RELATED_PROJECTS: Project[] = [
   {
     nameKey: 'about.sections.relatedProjects.esperantoAnalyzer.name',
     descKey: 'about.sections.relatedProjects.esperantoAnalyzer.description',
-    href:    'https://www.npmjs.com/package/esperanto-analyzer',
+    href:    '/tools/analyzer',
+  },
+  {
+    nameKey: 'about.sections.relatedProjects.pendumulo.name',
+    descKey: 'about.sections.relatedProjects.pendumulo.description',
+    href:    '/games/pendumulo',
+  },
+  {
+    nameKey: 'about.sections.relatedProjects.extensions.name',
+    descKey: 'about.sections.relatedProjects.extensions.description',
+    href:    'https://github.com/Vaporjawn/esperantaskanaduko.com/tree/main/extensions',
   },
   {
     nameKey: 'about.sections.relatedProjects.mangaDex.name',
@@ -251,10 +262,9 @@ const AboutPage = () => {
                 {RELATED_PROJECTS.map((project) => (
                   <Grid key={project.nameKey} size={{ xs: 12, sm: 6 }}>
                     <Box
-                      component="a"
-                      href={project.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      {...(project.href.startsWith('/')
+                        ? { component: RouterLink, to: project.href }
+                        : { component: 'a', href: project.href, target: '_blank', rel: 'noopener noreferrer' })}
                       sx={{
                         display: 'block',
                         p: 2.5,

@@ -51,6 +51,14 @@
         "title": "Esperanto Live Concert Videos",
         "description": "Watch live performances from Esperanto musicians worldwide. Discover the vibrant music culture in the Esperanto community.",
         "keywords": "Esperanto music, Esperanto concerts, Esperanto musicians, Esperanto culture, live music"
+      },
+      "hangman": {
+        "title": "Pendumulo - Esperanto Hangman Game",
+        "description": "Play Pendumulo, a hangman game for the Esperanto alphabet. Practise vocabulary and the letters ĉ, ĝ, ĥ, ĵ, ŝ and ŭ."
+      },
+      "analyzer": {
+        "title": "Esperanto Analyzer - Parts of Speech & Grammar",
+        "description": "Paste Esperanto text and see the part of speech, number, case and verb tense of every word."
       }
     }
   },
@@ -59,7 +67,9 @@
       "home": "Home",
       "library": "Library",
       "about": "About",
-      "resources": "Resources"
+      "resources": "Resources",
+      "play": "Extras",
+      "hangman": "Pendumulo (hangman)"
     },
     "secondary": {
       "contact": "Contact",
@@ -213,11 +223,19 @@
         "body": "Other open-source projects in the Esperanto ecosystem:",
         "esperantoAnalyzer": {
           "name": "Esperanto Analyzer",
-          "description": "An npm package for morphologically parsing and analyzing Esperanto text."
+          "description": "Analyse the parts of speech and grammar of any Esperanto text, right here on the site."
         },
         "mangaDex": {
           "name": "Esperanto Manga (MangaDex)",
           "description": "A curated collection of manga translated into Esperanto, freely readable on MangaDex."
+        },
+        "pendumulo": {
+          "name": "Pendumulo",
+          "description": "A hangman game for the Esperanto alphabet, including ĉ, ĝ, ĥ, ĵ, ŝ and ŭ."
+        },
+        "extensions": {
+          "name": "Browser Extensions",
+          "description": "Chrome extensions that translate web pages into Esperanto (source code on GitHub)."
         }
       },
       "contribute": {
@@ -307,7 +325,7 @@
       "title": "Related Projects",
       "esperantoAnalyzer": {
         "title": "Esperanto Analyzer",
-        "description": "NPM package for Esperanto text analysis"
+        "description": "Analyse Esperanto text word by word"
       }
     },
     "social": {
@@ -492,6 +510,57 @@
       "viewDetails": "View Details",
       "readOnline": "Read Online",
       "open": "Open"
+    }
+  },
+  "games": {
+    "hangman": {
+      "title": "Pendumulo",
+      "subtitle": "Guess the Esperanto word before the figure is complete.",
+      "figureLabel": "Hangman with {{count}} mistakes",
+      "unknownLetter": "unknown letter",
+      "letterLabel": "letter {{letter}}",
+      "wordLabel": "Word to guess",
+      "keyboardLabel": "Esperanto keyboard",
+      "playing": "Guess the word…",
+      "won": "🎉 You won!",
+      "lostPrefix": "You lost. The word was:",
+      "newGame": "New game",
+      "mistakes": "Mistakes: {{count}}/{{max}}",
+      "stats": "Games: {{games}} | Wins: {{wins}} | Streak: {{streak}}",
+      "keyboardHint": "Tip: type cx, gx, hx, jx, sx or ux to enter ĉ, ĝ, ĥ, ĵ, ŝ or ŭ."
+    }
+  },
+  "analyzer": {
+    "title": "Analyzer",
+    "subtitle": "See the grammar of every word in an Esperanto text.",
+    "inputLabel": "Esperanto text",
+    "inputHelp": "{{count}} / {{max}} characters",
+    "summary": "Summary",
+    "tableLabel": "Word analysis",
+    "columns": {
+      "word": "Word",
+      "partOfSpeech": "Part of speech",
+      "features": "Features",
+      "confidence": "Confidence"
+    },
+    "features": {
+      "plural": "plural",
+      "accusative": "accusative",
+      "possessive": "possessive"
+    },
+    "pos": {
+      "Noun": "Noun (substantivo)",
+      "Verb": "Verb (verbo)",
+      "Adjective": "Adjective (adjektivo)",
+      "Adverb": "Adverb (adverbo)",
+      "Pronoun": "Pronoun (pronomo)",
+      "Preposition": "Preposition (prepozicio)",
+      "Conjunction": "Conjunction (konjunkcio)",
+      "Interjection": "Interjection (interjekcio)",
+      "Article": "Article (artikolo)",
+      "Numeral": "Numeral (numeralo)",
+      "Unknown": "Unknown",
+      "Undefined": "Undefined"
     }
   }
 }

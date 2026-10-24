@@ -1,5 +1,6 @@
 import { Box, Typography, Link, Divider } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { Link as RouterLink } from 'react-router-dom';
 import GitHubLink from './gitHubLink/GitHubLink';
 import { SocialLinks } from '../socialLinks/SocialLinks';
 import { logAnalyticsEvent } from '../../../backend/firebase/analytics';
@@ -62,9 +63,8 @@ const Footer = () => {
             {t('footer.projects.title')}
           </Typography>
           <Link
-            href="https://www.npmjs.com/package/esperanto-analyzer"
-            target="_blank"
-            rel="noreferrer"
+            component={RouterLink}
+            to="/tools/analyzer"
             sx={{
               display: 'block',
               color: '#a0a0a0',
