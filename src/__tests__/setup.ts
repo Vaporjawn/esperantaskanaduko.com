@@ -18,8 +18,15 @@ jest.mock('react-helmet-async', () => ({
 // ─── Mock: react-i18next ──────────────────────────────────────────────────────
 jest.mock('react-i18next', () => ({
   useTranslation: () => ({
-    t: (key: string, fallback?: string | Record<string, unknown>) =>
-      typeof fallback === 'string' ? fallback : key,
+    // Mirrors i18next's fallback behaviour: a string second argument or an
+    // options object's `defaultValue` is returned, with {{placeholders}} filled
+    // from the options; otherwise the key itself.
+    t: (key: string, fallback?: string | Record<string, unknown>) => {
+      if (typeof fallback === 'string') return fallback;
+      const template = fallback?.defaultValue;
+      if (typeof template !== 'string') return key;
+      return template.replace(/\{\{(\w+)\}\}/g, (_match, name: string) => String(fallback?.[name] ?? ''));
+    },
     i18n: {
       changeLanguage: jest.fn(),
       language: 'en',
