@@ -1,3 +1,0 @@
-# Tests tools
-pytest
-pytest-cov

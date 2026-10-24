@@ -1,5 +1,0 @@
-## Development dependencies
-pylint
-pylint-json2html
-sphinx
-ipython

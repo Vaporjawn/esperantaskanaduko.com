@@ -1,1 +1,0 @@
-from esperanto_analyzer.analyzers.morphological_analyzer import MorphologicalAnalyzer
