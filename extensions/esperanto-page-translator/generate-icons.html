@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Icon Generator</title>
+</head>
+<body>
+  <canvas id="canvas16" width="16" height="16"></canvas>
+  <canvas id="canvas48" width="48" height="48"></canvas>
+  <canvas id="canvas128" width="128" height="128"></canvas>
+
+  <script>
+    // Generate placeholder icons with green background and "E" for Esperanto
+    function generateIcon(canvasId, size) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+
+      // Green background
+      ctx.fillStyle = '#2e7d32';
+      ctx.fillRect(0, 0, size, size);
+
+      // White "E" text
+      ctx.fillStyle = '#ffffff';
+      ctx.font = `bold ${Math.floor(size * 0.6)}px Arial`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('E', size / 2, size / 2);
+
+      // Download
+      canvas.toBlob(blob => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `icon${size}.png`;
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+    }
+
+    // Generate all icons
+    setTimeout(() => {
+      generateIcon('canvas16', 16);
+      setTimeout(() => generateIcon('canvas48', 48), 100);
+      setTimeout(() => generateIcon('canvas128', 128), 200);
+    }, 100);
+  </script>
+</body>
+</html>
