@@ -20,7 +20,7 @@ import {
 } from '@mui/material';
 import { Search as SearchIcon, MenuBook, Download, OpenInNew, ChromeReaderMode } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
-import { esperantoBooks, type Book } from '../../../data/libraryData';
+import { libraryBooks, type Book } from '../../../data/libraryData';
 import { SEO } from '../../../components/SEO';
 import { logAnalyticsEvent } from '../../../backend/firebase/analytics';
 
@@ -77,8 +77,8 @@ const LibraryPage = () => {
     mainEntity: {
       '@type': 'ItemList',
       name: 'Esperanto Books Collection',
-      numberOfItems: esperantoBooks.length,
-      itemListElement: esperantoBooks.slice(0, 5).map((book, index) => ({
+      numberOfItems: libraryBooks.length,
+      itemListElement: libraryBooks.slice(0, 5).map((book, index) => ({
         '@type': 'ListItem',
         position: index + 1,
         item: {
@@ -102,13 +102,13 @@ const LibraryPage = () => {
 
   // Get unique categories
   const categories = useMemo<string[]>(() => {
-    const cats = new Set<string>(esperantoBooks.map((book: Book) => book.category));
+    const cats = new Set<string>(libraryBooks.map((book: Book) => book.category));
     return ['all' as string, ...Array.from(cats)];
   }, []);
 
   // Filter books based on search and category
   const filteredBooks = useMemo(() => {
-    return esperantoBooks.filter((book: Book) => {
+    return libraryBooks.filter((book: Book) => {
       const matchesSearch =
         searchQuery === '' ||
         book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -145,7 +145,7 @@ const LibraryPage = () => {
   const pageEnd = Math.min(pageStart + PAGE_SIZE, filteredBooks.length);
   const booksOnPage = filteredBooks.slice(pageStart, pageEnd);
 
-  const getDifficultyColor = (difficulty: string) => {
+  const getDifficultyColor = (difficulty: Book['difficulty']) => {
     switch (difficulty) {
       case 'Beginner': return 'success';
       case 'Intermediate': return 'warning';
@@ -429,9 +429,11 @@ const LibraryPage = () => {
                       <Typography variant="body2" sx={{ color: 'text.secondary', marginBottom: '0.5rem' }}>
                         {t('library.book.author', isEsperanto ? 'Aŭtoro' : 'Author')}: {book.author}
                       </Typography>
-                      <Typography variant="body2" sx={{ color: 'text.secondary', marginBottom: '0.5rem' }}>
-                        {t('library.book.year', isEsperanto ? 'Jaro' : 'Year')}: {book.year}
-                      </Typography>
+                      {book.year !== undefined && (
+                        <Typography variant="body2" sx={{ color: 'text.secondary', marginBottom: '0.5rem' }}>
+                          {t('library.book.year', isEsperanto ? 'Jaro' : 'Year')}: {book.year}
+                        </Typography>
+                      )}
                       <Typography
                         variant="body2"
                         sx={{
@@ -456,16 +458,20 @@ const LibraryPage = () => {
                             border: '1px solid rgba(0, 255, 0, 0.3)',
                           }}
                         />
-                        <Chip
-                          label={book.difficulty}
-                          size="small"
-                          color={getDifficultyColor(book.difficulty)}
-                          variant="outlined"
-                        />
+                        {book.difficulty && (
+                          <Chip
+                            label={book.difficulty}
+                            size="small"
+                            color={getDifficultyColor(book.difficulty)}
+                            variant="outlined"
+                          />
+                        )}
                       </Box>
-                      <Typography variant="caption" sx={{ color: '#666666' }}>
-                        {book.pages} {t('library.book.pages', isEsperanto ? 'paĝoj' : 'pages')}
-                      </Typography>
+                      {book.pages !== undefined && (
+                        <Typography variant="caption" sx={{ color: '#666666' }}>
+                          {book.pages} {t('library.book.pages', isEsperanto ? 'paĝoj' : 'pages')}
+                        </Typography>
+                      )}
                     </CardContent>
                     <CardActions sx={{ padding: '1rem' }}>
                       {renderBookButton(book)}

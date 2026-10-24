@@ -1,14 +1,19 @@
+import { freeBooks, type FreeBookLanguage } from './freeBooks';
+
 export interface Book {
   id: number;
   title: string;
   titleEo: string;
   author: string;
-  year: number;
+  /** Publication year, when known */
+  year?: number;
   category: string;
   description: string;
   descriptionEo: string;
-  pages: number;
-  difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
+  /** Page count, when known */
+  pages?: number;
+  /** Reading difficulty, when assessed */
+  difficulty?: 'Beginner' | 'Intermediate' | 'Advanced';
   downloadUrl: string;
   coverImage?: string;
 }
@@ -314,3 +319,33 @@ export const esperantoBooks: Book[] = [
     downloadUrl: 'https://www.gutenberg.org/ebooks/20060',
   },
 ];
+
+/** English and Esperanto names of each language a free ebook can be written in. */
+const LANGUAGE_NAMES: Record<FreeBookLanguage, { en: string; eo: string }> = {
+  eo: { en: 'Esperanto', eo: 'Esperanta' },
+  en: { en: 'English', eo: 'Angla' },
+  de: { en: 'German', eo: 'Germana' },
+  nl: { en: 'Dutch', eo: 'Nederlanda' },
+  cs: { en: 'Czech', eo: 'Ĉeĥa' },
+};
+
+/** Category label shared by every ebook hosted on this site. */
+export const FREE_PDF_CATEGORY = 'Free PDF';
+
+/** The site-hosted PDF catalogue, converted to the shape the Library page renders. */
+const freePdfBooks: Book[] = freeBooks.map(book => {
+  const language = LANGUAGE_NAMES[book.language];
+  return {
+    id: book.id,
+    title: book.title,
+    titleEo: book.title,
+    author: book.author,
+    category: FREE_PDF_CATEGORY,
+    description: `Free ${language.en} ebook (PDF), originally from Project Gutenberg.`,
+    descriptionEo: `Senpaga ${language.eo.toLowerCase()} libro (PDF), origine el Projekto Gutenberg.`,
+    downloadUrl: book.file,
+  };
+});
+
+/** Every book shown on the Library page: the curated list plus the hosted PDFs. */
+export const libraryBooks: Book[] = [...esperantoBooks, ...freePdfBooks];
